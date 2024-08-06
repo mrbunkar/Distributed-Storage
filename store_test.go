@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"io"
 	"log"
 	"testing"
 )
@@ -45,7 +46,12 @@ func TestStore(t *testing.T) {
 			log.Printf("Error reading data %s \n", err)
 			continue
 		}
+		b, err := io.ReadAll(readData)
 
-		log.Printf("Data: %s \n", readData)
+		if err != nil {
+			t.Error(err)
+		}
+
+		log.Printf("Data: %s \n", string(b))
 	}
 }

@@ -12,3 +12,16 @@ type RPC struct {
 	Payload []byte
 	Stream  bool
 }
+
+type Message struct {
+	Payload any
+}
+
+type MessageStoreFile struct {
+	Key  string
+	Size int64
+}
+
+type MessageGetFile struct {
+	Key string
+}
